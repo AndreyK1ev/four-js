@@ -22,7 +22,7 @@ do {
                     result = total - number;
                 } else if (operation === "/") {
                     result = total / number;
-                } else if (operation === "*") {
+                } else (operation === "*") {
                     result = total * number;
                 } 
                 
