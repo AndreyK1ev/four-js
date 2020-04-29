@@ -1,42 +1,27 @@
-'use strict';
+"use strict";
 
-let input;
-let total = 0;
 
-do {
-    input = prompt(`Текущий результат: ${total}\nВведите операцию в формате <операнд><число>:`);
-    if (input !== null) {
-        const operation = input.slice(0, 1);
+  //let input;
+  let total = 0;
+  let userInput;
 
-        if (operation === "+" || operation === "-" || operation === "/" || operation === "*") {
-            const number = Number(input.slice(1, input.length));
+  while (true) {
+      userInput = prompt("Введите число");
 
-            if (isNaN(number)) {
-                alert("Вы ввели неверное число");
-            } else {
-                let result;
+      if (userInput === null) {
+          break;
+      }
 
-                if (operation === "+") {
-                    result = total + number;
-                } else if (operation === "-") {
-                    result = total - number;
-                } else if (operation === "/") {
-                    result = total / number;
-                } else (operation === "*") {
-                    result = total * number;
-                } 
-                
-                alert("Результат операции 0" + operation + number + " = " + result);
+      userInput = Number(userInput);
+      total += userInput;
 
-                total = result;
-                
-                
-            }
-        } else {
-            alert("операция недоступна");
-        }
-    }
-    else if(input === null) {
-        alert(`Общая сумма чисел равна ${total}`);
-    }
-} while (input !== null);
+      if (!userInput) {
+          alert(`Было введено не число, попробуйте еще раз`);
+          total = 0;
+      }
+  }
+
+  if (total) {
+      alert(`Общая сумма чисел равна ${total}`);
+  }
+
